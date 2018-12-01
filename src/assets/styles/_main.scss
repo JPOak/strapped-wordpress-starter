@@ -1,0 +1,29 @@
+//Import Bootstrap dependencies
+@import "~bootstrap/scss/bootstrap";
+
+//Custom styles start here
+
+// Common
+@import "common/content";
+@import "common/grid";
+@import "common/variables";
+
+// Components
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/wp-classes";
+
+// Layouts
+@import "layout/archive";
+@import "layout/footer";
+@import "layout/front";
+@import "layout/header";
+@import "layout/pages";
+@import "layout/posts";
+@import "layout/sidebars";
+
+// Templates
+@import "templates/post-list";
+@import "templates/sidebar-r";
+

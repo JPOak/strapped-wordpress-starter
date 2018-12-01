@@ -1,0 +1,15 @@
+body.archive #main {
+  @include make-col-ready();
+  @include make-col(12);
+  @include media-breakpoint-up(lg) {
+    @include make-col(8);
+  }
+}
+
+body.archive #secondary {
+  @include make-col-ready();
+  @include make-col(12);
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
+}
