@@ -32,7 +32,7 @@ Will launch browsersync and watch changes in php, scss and js files. Note: If yo
 npm run build
 ```
 
-Will minify all the files and remove sourcemaps and copy to the "dist" directory. Images in assets will be optimized. Note: Depending on how many images you have it may take awhile on first run.
+Will minify all the files and remove sourcemaps and copy to the "dist" directory. Images in assets will be optimized. Main.js and Main.css will be asset hashed for cachebusting. Note: Depending on how many images you have it may take awhile on first run.
 
 ## Built With
 

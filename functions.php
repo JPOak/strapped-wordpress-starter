@@ -135,11 +135,35 @@ add_action( 'widgets_init', 'strapped_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
+/**
+* Check to see if rev-manifest exists for CSS and JS static asset revisioning
+* https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
+*/
+
+if ( ! function_exists( 'strapped_asset_path' ) ) :
+	function strapped_asset_path( $filename ) {
+
+		$manifest_path  = dirname( __FILE__ ) . '/dist/manifest.json';
+
+		if ( file_exists( $manifest_path ) ) {
+			$manifest = json_decode( file_get_contents( $manifest_path ), true );
+		} else {
+			$manifest = [];
+		}
+
+		if ( array_key_exists( $filename, $manifest ) ) {
+			return $manifest[ $filename ];
+		}
+		return $filename;
+	}
+endif;
+
 function strapped_scripts() {
-	wp_register_style( 'strapped-styles', get_template_directory_uri() . '/dist/styles/main.css', array(), '1.0', 'all' );
+	wp_register_style( 'strapped-styles', get_template_directory_uri() . '/dist/styles/' . strapped_asset_path( 'main.css' ), array(), '1.0', 'all' );
 	wp_enqueue_style( 'strapped-styles' );
 
-	wp_register_script( 'strapped-js', get_template_directory_uri() . '/dist/scripts/main.js', array(), '1.0', true );
+	wp_register_script( 'strapped-js', get_template_directory_uri() . '/dist/scripts/' . strapped_asset_path( 'main.js' ), array(), '1.0', true );
 	wp_enqueue_script( 'strapped-js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

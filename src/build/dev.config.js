@@ -45,7 +45,7 @@ module.exports = merge(commonConfig, {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(['../../dist/scripts/*.LICENSE'], {allowExternal: true
+		new CleanWebpackPlugin(['../../dist/scripts', '../../dist/styles', '../../dist/manifest.json'], {allowExternal: true
 		}),
 		new MiniCssExtractPlugin({
 				filename: "../styles/[name].css"
