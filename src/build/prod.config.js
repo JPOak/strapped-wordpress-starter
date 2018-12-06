@@ -37,7 +37,8 @@ module.exports = merge(commonConfig, {
 						},
 						{
 								loader: 'css-loader', options: {
-										sourceMap: false
+										sourceMap: false,
+										url: false
 								}
 						},
 						{
@@ -58,8 +59,8 @@ module.exports = merge(commonConfig, {
 		]
 	},
     plugins: [
-      new CleanWebpackPlugin(['../../dist/scripts', '../../dist/styles'], {allowExternal: true
-      }),
+			new CleanWebpackPlugin(['../../dist'], {allowExternal: true
+			}),
       new MiniCssExtractPlugin({
         filename: '../styles/[name]_[contenthash].css'
         //chunkFilename: "[id].css"

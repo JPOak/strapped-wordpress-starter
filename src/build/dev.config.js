@@ -2,6 +2,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const merge = require('webpack-merge');
 const commonConfig = require('./common.config');
 const path = require('path');
@@ -24,7 +25,8 @@ module.exports = merge(commonConfig, {
 						},
 						{
 								loader: 'css-loader', options: {
-										sourceMap: true
+										sourceMap: true,
+										url: false
 								}
 						},
 						{
@@ -45,7 +47,7 @@ module.exports = merge(commonConfig, {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(['../../dist/scripts', '../../dist/styles', '../../dist/manifest.json'], {allowExternal: true
+		new CleanWebpackPlugin(['../../dist'], {allowExternal: true
 		}),
 		new MiniCssExtractPlugin({
 				filename: "../styles/[name].css"
