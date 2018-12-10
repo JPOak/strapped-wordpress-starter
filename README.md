@@ -26,7 +26,7 @@ Will compile scss and js with sourcemaps and copy from "src" to "dist."
 npm run start
 ```
 
-Will launch browsersync and watch changes in php, scss and js files. Note: If you are running a local dev server be sure to add you URL to src/build/webpack.config.js on line 80.
+Will launch browsersync and watch changes in php, scss and js files. Note: If you are running a local dev server be sure to add your URL to src/build/dev.config.js on line 61.
 
 ```
 npm run build
