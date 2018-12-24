@@ -17,7 +17,7 @@ npm install
 ### Building
 
 ```
-npm run dist
+npm run dev
 ```
 
 Will compile scss and js with sourcemaps and copy from "src" to "dist." 
