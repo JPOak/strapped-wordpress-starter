@@ -5,15 +5,25 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
+const fileExists = require('file-exists');
 const merge = require('webpack-merge');
 const commonConfig = require('./common.config');
 const path = require('path');
+
+//Check for config-local file, else use config-default
+const checkConfig = fileExists.sync(path.resolve(__dirname, './config-local.json'));
+const configPath = (checkConfig === true) ? './config-local.json' : './config-default.json';
+
+const configDefault = require(configPath);
+
+//Conditionally use asset hashing
+const revisioning = (configDefault.revisioning === true) ? '[name]_[contenthash]' : '[name]';
 
 module.exports = merge(commonConfig, {
 
 	output: {
 		path: path.resolve(__dirname, '../../dist/scripts'),
-		filename: '[name]_[contenthash].js'
+		filename: revisioning + '.js'
 	},
 	devtool: false,
 	optimization: {
@@ -62,7 +72,7 @@ module.exports = merge(commonConfig, {
 			new CleanWebpackPlugin(['../../dist'], {allowExternal: true
 			}),
       new MiniCssExtractPlugin({
-        filename: '../styles/[name]_[contenthash].css'
+        filename: '../styles/' + revisioning + '.css'
         //chunkFilename: "[id].css"
 			}),
 			new WebpackAssetsManifest({
