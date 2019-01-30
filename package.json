@@ -10,8 +10,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack --mode development --watch --progress --config src/build/dev.config.js",
-    "dev": "webpack --mode development  --config src/build/dev.config.js",
-    "build": "webpack --mode production  --config src/build/prod.config.js"
+    "dev": "webpack --progress --mode development  --config src/build/dev.config.js",
+    "build": "webpack --progress --mode production  --config src/build/prod.config.js"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

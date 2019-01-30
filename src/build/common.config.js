@@ -8,6 +8,16 @@ module.exports = {
 	performance: {
 		hints: false
 	},
+	stats: {
+		hash: false,
+		version: false,
+		timings: false,
+		children: false,
+		chunks: false,
+		modules: false,
+		source: false,
+		publicPath: false
+	},
 	module: {
 		rules: [
 			{
