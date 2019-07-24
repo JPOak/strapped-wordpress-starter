@@ -51,4 +51,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Added boostrap navwalker https://github.com/twittem/wp-bootstrap-navwalker.
  */
-require_once get_template_directory() . '/library/class-wp-bootstrap-navwalker.php';
+// require_once get_template_directory() . '/library/class-wp-bootstrap-navwalker.php';

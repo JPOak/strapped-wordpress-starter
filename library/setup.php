@@ -102,3 +102,31 @@ if ( ! function_exists( 'strapped_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'strapped_setup' );
+
+/*==================================================================================
+ SETUP WP-MENUS
+==================================================================================*/
+// loads wordpress-menus, add your custom menus here or remove if not needed
+// by default, only 'mainmenu' is shown
+// => https://codex.wordpress.org/Function_Reference/register_nav_menus
+function wpseed_register_theme_menus() {
+	register_nav_menus([
+	  'mainmenu' => __('Mainmenu'),
+	  'footermenu' => __('Footermenu')
+	]);
+  }
+  add_action( 'init', 'wpseed_register_theme_menus');
+
+
+/*==================================================================================
+ Add Page Slug to Body Class
+==================================================================================*/
+// Add Page Slug to Body Class to make router.js work
+function add_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+	  $classes[] =  $post->post_name;
+	}
+	return $classes;
+  }
+  add_filter( 'body_class', 'add_slug_body_class' );

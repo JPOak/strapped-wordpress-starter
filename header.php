@@ -16,6 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<?php wp_head(); ?>
 </head>
@@ -27,45 +28,35 @@
 		<div class="container">
 			<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
 				<div class="site-branding navbar-brand">
-				<?php
-				the_custom_logo();
-				if ( is_front_page() && is_home() ) :
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php
-				else :
-					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-				endif;
-				$strapped_description = get_bloginfo( 'description', 'display' );
-				if ( $strapped_description || is_customize_preview() ) :
-					?>
-					<p class="site-description"><?php echo $strapped_description; /* WPCS: xss ok. */ ?></p>
-				<?php endif; ?>
+					<a href="<?= get_bloginfo('url'); ?>">
+          				<div class="logo"></div>
+       				 </a>
 				</div><!-- .site-branding -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#strapped-navbar-collapse" aria-controls="strapped-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				
+				<!-- DESKTOP NAV -->
+				<?php
+					if ( has_nav_menu( 'mainmenu' ) ) :
+					wp_nav_menu([
+						'menu_class'=> 'hidden_mobile',
+						'menu_id' => 'menu_main',
+						'container'=> false,
+						'depth' => 1,
+						'theme_location' => 'mainmenu'
+					]);
+					endif;
+				?>
+
+				 <!-- MOBILE NAV (BURGER) -->
+				 <button class="hamburger hamburger--elastic " id="hamburger" type="button">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
 				</button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location'    => 'primary',
-							'depth'             => 2,
-							'container'         => 'div',
-							'container_class'   => 'collapse navbar-collapse flex-row-reverse',
-							'container_id'      => 'strapped-navbar-collapse',
-							'menu_class'        => 'nav navbar-nav',
-							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-							'walker'            => new WP_Bootstrap_Navwalker(),
-						)
-					);
-					?>
 
 
 
 			</nav><!-- #site-navigation -->
-			</div><!-- #container -->
+		</div><!-- #container -->
 	</header><!-- #masthead -->
 
 
