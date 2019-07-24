@@ -1,7 +1,9 @@
+import AOS from 'AOS';
+
+
 export default {
     init() {
       // JavaScript to be fired on all pages
-
         /* Hamburger switch
         /––––––––––––––––––––––––*/
         $(function(){
@@ -15,14 +17,24 @@ export default {
             });
         });
 
-      console.log('common.js');
+        
 
   
       
     },
     finalize() {
       // JavaScript to be fired on all pages, after page specific JS is fired
-      
-     
+
+        /* AOS
+        /––––––––––––––––––––––––*/
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 800,
+            delay: 200,
+            once: true,
+            disable: 'mobile'
+        });
+        
+
     },
   };

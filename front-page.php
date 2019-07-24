@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<div id="primary" class="container content-area">
+<div id="primary" class="container content-area" >
 	<main id="main" class="site-main">
 	<?php
 	while ( have_posts() ) :
@@ -22,7 +22,10 @@ get_header();
 	?>
 
 	</main><!-- #main -->
+	<div data-aos="fade-up" style=" margin-top:850px;width:30px;height:30px;background:red;"></div>
+
 </div><!-- #primary -->
+
 
 <?php
 get_footer();
