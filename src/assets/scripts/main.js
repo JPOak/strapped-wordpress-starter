@@ -26,6 +26,7 @@ import about from './routes/about';
 
 
 
+
 /** Populate Router instance with DOM routes */
 const routes = new Router({
     // All pages

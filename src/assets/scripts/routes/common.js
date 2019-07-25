@@ -1,7 +1,10 @@
+import AOS from 'AOS';
+import Parallax from 'parallax-js'
+
+
 export default {
     init() {
       // JavaScript to be fired on all pages
-
         /* Hamburger switch
         /––––––––––––––––––––––––*/
         $(function(){
@@ -13,16 +16,35 @@ export default {
             // prevent content scrolling
             $('html').toggleClass('noscroll');
             });
+
+
+           
         });
 
-      console.log('common.js');
+        
 
   
       
     },
     finalize() {
       // JavaScript to be fired on all pages, after page specific JS is fired
-      
-     
+
+        /* AOS
+        /––––––––––––––––––––––––*/
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1800,
+            once: true,
+            disable: 'mobile'
+        });
+
+        /* PARALLAX
+        /––––––––––––––––––––––––*/
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene,{
+          relativeInput: true
+        });
+        
+
     },
   };
