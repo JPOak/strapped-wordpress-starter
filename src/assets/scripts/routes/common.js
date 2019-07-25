@@ -1,4 +1,5 @@
 import AOS from 'AOS';
+import Parallax from 'parallax-js'
 
 
 export default {
@@ -15,6 +16,9 @@ export default {
             // prevent content scrolling
             $('html').toggleClass('noscroll');
             });
+
+
+           
         });
 
         
@@ -29,10 +33,16 @@ export default {
         /––––––––––––––––––––––––*/
         AOS.init({
             easing: 'ease-out-back',
-            duration: 800,
-            delay: 200,
+            duration: 1800,
             once: true,
             disable: 'mobile'
+        });
+
+        /* PARALLAX
+        /––––––––––––––––––––––––*/
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene,{
+          relativeInput: true
         });
         
 
