@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -69,8 +69,7 @@ module.exports = merge(commonConfig, {
 		]
 	},
     plugins: [
-			new CleanWebpackPlugin(['../../dist'], {allowExternal: true
-			}),
+			new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: '../styles/' + revisioning + '.css'
         //chunkFilename: "[id].css"

@@ -1,5 +1,5 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
@@ -53,8 +53,7 @@ module.exports = merge(commonConfig, {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(['../../dist'], {allowExternal: true
-		}),
+		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 				filename: "../styles/[name].css"
 				//chunkFilename: "[id].css"
