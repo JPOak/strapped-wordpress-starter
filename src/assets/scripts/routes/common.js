@@ -1,4 +1,4 @@
-import AOS from 'AOS';
+
 
 
 export default {
@@ -30,12 +30,12 @@ export default {
 
         /* AOS
         /––––––––––––––––––––––––*/
-        AOS.init({
-            easing: 'ease-out-back',
-            duration: 1800,
-            once: true,
-            disable: 'mobile'
-        });
+        // AOS.init({
+        //     easing: 'ease-out-back',
+        //     duration: 1800,
+        //     once: true,
+        //     disable: 'mobile'
+        // });
 
     },
   };
