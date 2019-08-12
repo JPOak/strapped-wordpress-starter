@@ -1,5 +1,4 @@
 import AOS from 'AOS';
-import Parallax from 'parallax-js'
 
 
 export default {
@@ -37,14 +36,6 @@ export default {
             once: true,
             disable: 'mobile'
         });
-
-        /* PARALLAX
-        /––––––––––––––––––––––––*/
-        var scene = document.getElementById('scene');
-        var parallaxInstance = new Parallax(scene,{
-          relativeInput: true
-        });
-        
 
     },
   };
