@@ -14,7 +14,7 @@
 if ( ! function_exists( 'strapped_asset_path' ) ) :
 	function strapped_asset_path( $filename ) {
 
-		$manifest_path  = dirname( __FILE__ ) . '/dist/manifest.json';
+		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/manifest.json';
 
 		if ( file_exists( $manifest_path ) ) {
 			$manifest = json_decode( file_get_contents( $manifest_path ), true );
