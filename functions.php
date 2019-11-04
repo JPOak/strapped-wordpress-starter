@@ -42,6 +42,11 @@ require get_template_directory() . '/library/template-functions.php';
 require get_template_directory() . '/library/customizer.php';
 
 /**
+ * Bootstrap pagination.
+ */
+require get_template_directory() . '/library/boostrap-pagination.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
