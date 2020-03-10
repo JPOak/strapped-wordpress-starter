@@ -22,10 +22,8 @@ get_header();
 	?>
 
 	</main><!-- #main -->
-	<div id="scene" style=" margin-top:350px;">
-		<div data-depth="0.2">My first Layer!</div>
-		<div data-depth="0.6">My second Layer!</div>
-		<div data-aos="fade-up" data-depth="0.9" style=" margin-top:50px;width:30px;height:30px;background:red;"></div>
+	<div class="btn__wrapper">
+			<a href="<?php echo $value['slider_button']['url'] ?>" class="btn"><?php echo $value['slider_button']['title'] ?></a>
 	</div>
 
 </div><!-- #primary -->
