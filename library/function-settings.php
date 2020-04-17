@@ -64,18 +64,17 @@ if ( ! function_exists( 'strapped_setup' ) ) :
 		}
 	endif;
 	function strapped_scripts() {
-		// STYLE
-		// disable Gutenberg block styles
+		
+		// Deregister guttenberg style
 		global $load_default_block_styles;
 		if (!$load_default_block_styles) :
 		wp_dequeue_style( 'wp-block-library' );
 		endif;
 
+		// STYLE
 		wp_register_style( 'strapped-styles', get_template_directory_uri() . '/dist/styles/' . strapped_asset_path( 'main.css' ), array(), '1.0', 'all' );
 		wp_enqueue_style( 'strapped-styles' );
-
 		
-
 		// SCRIPT
 		wp_dequeue_script( 'jquery' );
 		wp_deregister_script( 'jquery' );
