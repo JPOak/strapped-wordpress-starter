@@ -23,7 +23,7 @@ get_header();
 
 	</main><!-- #main -->
 	<div class="btn__wrapper">
-			<a href="<?php echo $value['slider_button']['url'] ?>" class="btn"><?php echo $value['slider_button']['title'] ?></a>
+			<a href="" class="btn"></a>
 	</div>
 
 </div><!-- #primary -->

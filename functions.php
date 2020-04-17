@@ -1,59 +1,58 @@
 <?php
 /**
- * Strapped functions and definitions
+ * Main Functions File - used for:
+ * • including other function-files
+ * • WP-Support & WP-Setup
+ * • general functions like replacements, translations
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * @author      Andrea Musso
  *
- * @package Strapped
  */
+/*==================================================================================
+  WP SETUP
+==================================================================================*/
+// general setup like menu, login font, GTM
+require get_template_directory() . '/library/function-setup.php';
 
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-require get_template_directory() . '/library/setup.php';
+/*==================================================================================
+  DEVELOPER TOOLKIT
+==================================================================================*/
+// functions used for development purposes like debuggers, return SVG from ACF
+require get_template_directory() . '/library/function-dev.php';
 
-/**
- * Register widget area.
- */
-require get_template_directory() . '/library/sidebars.php';
+/*==================================================================================
+  SETTINGS
+==================================================================================*/
+// general settings, enqueue, theme support, disable backend-theme-editor & more
+require get_template_directory() . '/library/function-settings.php';
 
-/**
- * Enqueue scripts and styles.
- */
-require get_template_directory() . '/library/enqueue-scripts.php';
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/library/template-tags.php';
+/*==================================================================================
+  WIDGET AND SIDEBAR
+==================================================================================*/
+// register widget and sidebar
+require get_template_directory() . '/library/function-widget.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/library/template-functions.php';
+/*==================================================================================
+  CUSTOMIZER
+==================================================================================*/
+// set up the wordpress customizer for the user
+require get_template_directory() . '/library/function-customizer.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/library/customizer.php';
 
-/**
- * Bootstrap pagination.
- */
-require get_template_directory() . '/library/bootstrap-pagination.php';
+/*==================================================================================
+  GUTENBERG ACF
+==================================================================================*/
+// bundles all custom Gutenberg-blocks created with ACF
+require get_template_directory() . '/library/function-guttenberg.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/library/jetpack.php';
-}
 
-/**
- * Added boostrap navwalker https://github.com/twittem/wp-bootstrap-navwalker.
- */
-// require_once get_template_directory() . '/library/class-wp-bootstrap-navwalker.php';
+/*==================================================================================
+  CUSTOM
+==================================================================================*/
+// custom functions like shortcodes should be added here
+require get_template_directory() . '/library/function-custom.php';
+
+
+
+

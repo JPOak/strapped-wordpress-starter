@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="container site-footer">
 		<div class="site-info">
-			<p>This is a starter theme called Strapped.</p>
+			<p><?php echo  do_shortcode( "[copyright]" ) ?></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 
