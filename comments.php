@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Strapped
+ * @package foundry
  */
 
 /*
@@ -28,18 +28,18 @@ if ( post_password_required() ) {
 		?>
 		<h2 class="comments-title">
 			<?php
-			$strapped_comment_count = get_comments_number();
-			if ( '1' === $strapped_comment_count ) {
+			$foundry_comment_count = get_comments_number();
+			if ( '1' === $foundry_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'strapped' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'foundry' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $strapped_comment_count, 'comments title', 'strapped' ) ),
-					number_format_i18n( $strapped_comment_count ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $foundry_comment_count, 'comments title', 'foundry' ) ),
+					number_format_i18n( $foundry_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			}
@@ -65,7 +65,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'strapped' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'foundry' ); ?></p>
 			<?php
 		endif;
 

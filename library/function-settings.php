@@ -30,7 +30,7 @@
 ==================================================================================*/
 
 
-if ( ! function_exists( 'strapped_setup' ) ) :
+if ( ! function_exists( 'foundry_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -46,8 +46,8 @@ if ( ! function_exists( 'strapped_setup' ) ) :
 
 	/* 1.1 ENQUEUE SCRIPTS/STYLES
 	/––––––––––––––––---––––––––*/
-	if ( ! function_exists( 'strapped_asset_path' ) ) :
-		function strapped_asset_path( $filename ) {
+	if ( ! function_exists( 'foundry_asset_path' ) ) :
+		function foundry_asset_path( $filename ) {
 	
 			$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/manifest.json';
 	
@@ -63,7 +63,7 @@ if ( ! function_exists( 'strapped_setup' ) ) :
 			return $filename;
 		}
 	endif;
-	function strapped_scripts() {
+	function foundry_scripts() {
 		
 		// Deregister guttenberg style
 		global $load_default_block_styles;
@@ -72,31 +72,31 @@ if ( ! function_exists( 'strapped_setup' ) ) :
 		endif;
 
 		// STYLE
-		wp_register_style( 'strapped-styles', get_template_directory_uri() . '/dist/styles/' . strapped_asset_path( 'main.css' ), array(), '1.0', 'all' );
-		wp_enqueue_style( 'strapped-styles' );
+		wp_register_style( 'foundry-styles', get_template_directory_uri() . '/dist/styles/' . foundry_asset_path( 'main.css' ), array(), '1.0', 'all' );
+		wp_enqueue_style( 'foundry-styles' );
 		
 		// SCRIPT
 		wp_dequeue_script( 'jquery' );
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'strapped-js', get_template_directory_uri() . '/dist/scripts/' . strapped_asset_path( 'main.js' ), array(), '1.0', true );
-		wp_enqueue_script( 'strapped-js' );
+		wp_register_script( 'foundry-js', get_template_directory_uri() . '/dist/scripts/' . foundry_asset_path( 'main.js' ), array(), '1.0', true );
+		wp_enqueue_script( 'foundry-js' );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-	add_action( 'wp_enqueue_scripts', 'strapped_scripts' );
+	add_action( 'wp_enqueue_scripts', 'foundry_scripts' );
 
 	/* 1.2 THEME SUPPORT
 	/––––––––––––––––––––––––*/
-	function strapped_setup() {
+	function foundry_setup() {
 		/*
 			* Make theme available for translation.
 			* Translations can be filed in the /languages/ directory.
-			* If you're building a theme based on Strapped, use a find and replace
-			* to change 'strapped' to the name of your theme in all the template files.
+			* If you're building a theme based on foundry, use a find and replace
+			* to change 'foundry' to the name of your theme in all the template files.
 			*/
-		load_theme_textdomain( 'strapped', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'foundry', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -141,13 +141,12 @@ if ( ! function_exists( 'strapped_setup' ) ) :
 			)
 		);
 
-
 		/* Gutenberg -> enable wide images
 		/––––––––––––––––––––––––*/
 		add_theme_support( 'align-wide' );
 	}
 endif;
-add_action( 'after_setup_theme', 'strapped_setup' );
+add_action( 'after_setup_theme', 'foundry_setup' );
 
 
 

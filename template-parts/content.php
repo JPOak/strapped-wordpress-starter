@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Strapped
+ * @package foundry
  */
 
 ?>
@@ -21,15 +21,12 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				strapped_posted_on();
-				strapped_posted_by();
-				?>
+
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php strapped_post_thumbnail(); ?>
+
 
 	<div class="entry-content">
 		<?php
@@ -37,7 +34,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'strapped' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'foundry' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -50,7 +47,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'strapped' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'foundry' ),
 				'after'  => '</div>',
 			)
 		);
@@ -58,6 +55,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php strapped_entry_footer(); ?>
+		<?php foundry_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
