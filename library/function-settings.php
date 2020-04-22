@@ -72,7 +72,10 @@ if ( ! function_exists( 'foundry_setup' ) ) :
 		endif;
 
 		// STYLE
-		wp_register_style( 'foundry-styles', get_template_directory_uri() . '/dist/styles/' . foundry_asset_path( 'main.css' ), array(), '1.0', 'all' );
+
+		wp_register_style( 'root-styles', get_template_directory_uri() . '/dist/styles/root.css', array(), '1.0', 'all'  );
+	
+		wp_register_style( 'foundry-styles', get_template_directory_uri() . '/dist/styles/' . foundry_asset_path( 'main.css' ), array('root-styles'), '1.0', 'all' );
 		wp_enqueue_style( 'foundry-styles' );
 		
 		// SCRIPT

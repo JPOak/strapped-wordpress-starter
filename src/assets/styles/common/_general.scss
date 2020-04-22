@@ -4,85 +4,26 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: contain;
-  -webkit-tap-highlight-color: transparent;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+	-webkit-tap-highlight-color: transparent;
 }
 
-html {
-//   max-width: 100vw;
-//   height: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  font-family: $html__fontname;
-//   font-size: $base_size; // only used for rem-handling, the actual font-size is $body__fontsize
-  color: $html__textcolor;
-  background-color: $html__bgcolor;
-  @include media-breakpoint-down(sm) {
-    // font-size: $base_size_mobile;
-  }
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+p,
+h1 {
+	color: $color__main !important;
 }
-
-body  {
-  // used as wrapper for sticky footer
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-  // min-height: 100vh;
-//   font-size: $body__fontsize;
-//   font-weight: $body__fontweight;
-  line-height: $body__lineheight;
-  @include media-breakpoint-down(sm) {
-    // font-size: $body__fontsize_mobile;
-  }
-}
-
-
-/* remove bootstrap active border
-/––––––––––––––––––––––––*/
-
-textarea:hover, 
-textarea:active, 
-textarea:focus, 
-button:focus,
-button:active,
-button:hover,
-label:focus,
-.btn:active,
-.btn.active,
-input[type=submit]:active,
-input[type=submit]:focus,
-input[type=submit]:hover,
-input[type=date]:active,
-input[type=date]:focus,
-input[type=button]:active,
-input[type=button]:focus,
-input[type=text]:active,
-input[type=text]:focus,
-input[type=search],
-input[type=search]:focus,
-input[type=search]:active
-{
-    outline:0px !important;
-    -webkit-appearance:none;
-    box-shadow: none;
-}
-
-
 /* PRESETS
 /––––––––––––––––––––––––*/
 
 .noscroll {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 :focus {
-  outline: 0;
+	outline: 0;
 }
