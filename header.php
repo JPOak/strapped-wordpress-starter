@@ -1,6 +1,11 @@
 <?php
 /**
- * @author    Andrea Musso
+ * Main Site Header Template
+ * 
+ * @author   Andrea Musso
+ * 
+ * @package  Foundry
+ * 
  */
 
 ?>
@@ -25,11 +30,12 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundry' ); ?></a>
 	<header class="site-header">
-		<div class="site-header-inner">
+		<div class="site-header__inner">
 			<?php get_template_part( 'components/header/logo' ); ?>
 			<?php get_template_part( 'components/navigation/primary' ); ?>
 			<?php get_template_part( 'components/header/hamburger' ); ?>
 		</div>
+		<?php get_search_form(); ?>
 	</header><!-- .site-header -->
 
 

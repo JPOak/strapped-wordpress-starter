@@ -12,7 +12,7 @@ if ( has_nav_menu( 'mainmenu' ) ) :
         'theme_location'    => 'mainmenu',
         'menu_class'        => 'hidden_mobile',
         'container'         => 'nav',
-        'container_class'   => 'site-header-item site-header-menu primary-menu',
+        'container_class'   => 'site-header__item site-header__menu primary-menu',
         'depth'             => 2
     ]);
 endif;

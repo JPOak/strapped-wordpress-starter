@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @author Andrea Musso
  *
  * @package foundry
  */
@@ -13,10 +13,10 @@
 
 </div><!-- #content -->
 
-	<footer id="colophon" class="container site-footer">
-		<div class="site-info">
-			<p><?php echo  do_shortcode( "[copyright]" ) ?></p>
-		</div><!-- .site-info -->
+	<footer class="site-footer">
+		<div class="site-footer__inner">
+			<?php get_template_part( 'components/footer/copyright' ) ?>
+		</div>
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->
