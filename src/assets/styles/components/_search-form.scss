@@ -1,0 +1,21 @@
+.search-form {
+	position: relative;
+	width: 180px;
+}
+
+.search-form-input {
+	padding-right: 60px;
+	padding: 5px 0px;
+	box-shadow: none;
+	border: none;
+	border-bottom: 1px solid $color__main;
+}
+
+.search-form-button {
+	position: absolute;
+	top: 0rem;
+	right: 0rem;
+	padding: 5px 10px;
+	border-radius: 3px;
+	background-color: $color__main;
+}
