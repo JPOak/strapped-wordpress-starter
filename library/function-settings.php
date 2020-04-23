@@ -137,8 +137,8 @@ if ( ! function_exists( 'foundry_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 250,
-				'width'       => 150,
+				'height'      => 100,
+				'width'       => 400,
 				'flex-width'  => true,
 				'flex-height' => true,
 			)

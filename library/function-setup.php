@@ -50,8 +50,8 @@ $GTM_id = '';
 // => https://codex.wordpress.org/Function_Reference/register_nav_menus
 function wpseed_register_theme_menus() {
   register_nav_menus([
-    'mainmenu' => __('Mainmenu'),
-    'footermenu' => __('Footermenu')
+    'mainmenu' => __('Main menu'),
+    'footermenu' => __('Footer menu')
   ]);
 }
 add_action( 'init', 'wpseed_register_theme_menus');

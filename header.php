@@ -4,13 +4,12 @@
  */
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--=== GMT head ===-->
 	<?php  WPSeed_gtm('head') ?>
@@ -25,46 +24,13 @@
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundry' ); ?></a>
-	<header id="masthead" class="site-header">
-		<div class="row content-block">
-			<nav id="site-navigation" class="">
-				<div class="site-branding">
-					<a href="<?php site_url( '/' ); ?>">
-					<?php if(has_custom_logo()): ?>
-						<div class="logo">
-							<?php the_custom_logo( ); ?>
-						</div>
-					<?php else :?>
-						<h1><?php echo get_bloginfo( 'name' ) ?></h1>
-					<?php endif; ?>
-       				 </a>
-				</div><!-- .site-branding -->
-				
-				<!-- DESKTOP NAV -->
-				<?php
-					if ( has_nav_menu( 'mainmenu' ) ) :
-					wp_nav_menu([
-						'menu_class'=> 'hidden_mobile',
-						'menu_id' => 'menu_main',
-						'container'=> false,
-						'depth' => 1,
-						'theme_location' => 'mainmenu'
-					]);
-					endif;
-				?>
-
-				 <!-- MOBILE NAV (BURGER) -->
-				 <button class="hamburger hamburger--collapse " id="hamburger" type="button">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</button>
-
-
-
-			</nav><!-- #site-navigation -->
-		</div><!-- #container -->
-	</header><!-- #masthead -->
+	<header class="site-header">
+		<div class="site-header-inner">
+			<?php get_template_part( 'components/header/logo' ); ?>
+			<?php get_template_part( 'components/navigation/primary' ); ?>
+			<?php get_template_part( 'components/header/hamburger' ); ?>
+		</div>
+	</header><!-- .site-header -->
 
 
 	<div id="content" class="site-content">

@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@drewbot/sass-flexbox-grid": "^2.0.7",
-    "hamburgers": "^1.1.3"
+    "hamburgers": "^1.1.3",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
