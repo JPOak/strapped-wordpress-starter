@@ -1,0 +1,6 @@
+.hidden_mobile {
+	display: none;
+	@media #{$breakpoint-sm-up} {
+		display: block;
+	}
+}

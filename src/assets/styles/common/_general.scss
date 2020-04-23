@@ -1,29 +1,113 @@
 /*==================================================================================
   GENERAL
 ==================================================================================*/
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: contain;
-	-webkit-tap-highlight-color: transparent;
+html {
+	color: $color__text;
+	font-family: $text__fontname;
+	// Make everything look a little nicer in webkit
+	-webkit-font-smoothing: antialiased;
+	font-size: $text__p;
+	font-weight: 400;
 }
 
+/**
+ * Generic Typography
+ */
+
+/**
+ * Paragraphs, and various text elements.
+ */
 p,
-h1 {
-	color: $color__main !important;
+li,
+code,
+pre,
+ul,
+li,
+ol {
+	color: $color__text;
 }
-/* PRESETS
-/––––––––––––––––––––––––*/
 
-.noscroll {
-	overflow: hidden;
+em,
+i,
+q,
+dfn {
+	font-style: italic;
 }
 
-:focus {
-	outline: 0;
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/**
+ * Links
+ */
+a {
+	color: $color__link;
+	text-decoration: none;
+	font-size: $text__p;
+	&:hover {
+		color: $color__link-hover;
+	}
+}
+
+/*
+ * Headings
+ */
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px;
+	font-family: $header__fontname;
+}
+
+h1,
+.h1 {
+	font-size: $text__h1;
+}
+
+h2,
+.h2 {
+	font-size: $text__h1;
+}
+
+h3,
+.h3 {
+	font-size: $text__h3;
+}
+
+h4,
+.h4 {
+	font-size: $text__h4;
+}
+
+h5,
+.h5 {
+	font-size: $text__h5;
+}
+
+h6,
+.h6 {
+	font-size: $text__h6;
 }

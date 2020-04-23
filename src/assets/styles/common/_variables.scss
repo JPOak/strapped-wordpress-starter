@@ -4,43 +4,64 @@
   * Normally, you don't have to change anything in essentials.css and general.css
   * because you'll define the basic-values here.
   *
-  * @author     Flurin Dürst
-  * @version    2.1.0
-  * @since      WPSeed 0.1
   *
   */
 
 /*==================================================================================
-  SCALING
+  GRID overwrite default
 ==================================================================================*/
+// Grid
+$grid-columns: 12; // Set number of columns in the grid
 
-$base_size: 1.7vw; // scales all `rem` based objects by adding this value as html font-size
-$base_size_mobile: $base_size * 2.2; // scaling multiplicator for mobile viewport
+$xs-max: 40rem; // Set xs breakpoint's max width 40rem = 640px
+$sm-max: 64rem; // Set sm breakpoint's max width 64rem =1,024px
+$md-max: 90rem; // Set md breakpoint's max width 90rem = 1,440px
+$lg-max: 120rem; // Set lg breakpoint's max width 120rem = 1,920px
+
+$gutter: 1rem; // Set gutter size 16px
+
+$content-well-max-width: "none"; // Set the max-width of the content well => see mixins
+
+/*==================================================================================
+  FONT
+==================================================================================*/
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600,800&display=swap");
+
+$text__fontname: "Raleway", sans-serif; // Normal 400, Medium 500, Bold 700
+$header__fontname: "Raleway", sans-serif; // Normal 400, Medium 500, Bold 700
 
 /*==================================================================================
   COLORS
 ==================================================================================*/
 
-/* Presets
+/* from customiser root -> see function-customiser.php
 /––––––––––––––––––––––––*/
 $color__main: var(--main_color);
-$color__text: #bf9262;
-$color__link: #505050;
-$color__link-hover: #f7f7f7;
+$color__text: var(--text_color);
+$color__link: var(--link_color);
+$color__link-hover: var(--link_color_hover);
+$color__bright: #ffffff;
+$color__dark: #353434;
 
 /*==================================================================================
-  DEFAULTS
+  BUTTONS
 ==================================================================================*/
-// these basic defaults are applied to the 'html', 'body', 'nav' or 'a' tags
 
-/* HTML
-/––––––––––––––––––––––––*/
+$button__color: $color__main;
+$button__width: 150px;
+$button__height: 45px;
+$button__radius: 30px;
 
-/* BODY
-/––––––––––––––––––––––––*/
+/*==================================================================================
+  TYPOGRAPHY
+==================================================================================*/
 
-/* NAV
-/––––––––––––––––––––––––*/
+$text__h1: var(--text-h1);
+$text__h2: var(--text-h2);
+$text__h3: var(--text-h3);
+$text__h4: var(--text-h4);
+$text__h5: var(--text-h5);
+$text__h6: var(--text-h6);
+$text__p: var(--text-p);
 
-/* ANCHORS
-/––––––––––––––––––––––––*/
+$font__weight: 400; //This is the global font-weight for text, link etc.. Specify header weight separetelly

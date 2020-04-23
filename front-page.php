@@ -10,8 +10,8 @@
 get_header();
 ?>
 
-<div id="primary" class="container content-area" >
-	<main id="main" class="site-main">
+<div id="primary" class="container content-area row content-block" >
+	<main id="main" class="site-main  col-xs-2 col-sm-4">
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -23,7 +23,7 @@ get_header();
 
 	</main><!-- #main -->
 	<div class="btn__wrapper">
-			<a href="" class="btn"></a>
+		<a href="" class="btn">Read more</a>
 	</div>
 
 </div><!-- #primary -->

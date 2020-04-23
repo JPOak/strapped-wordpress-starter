@@ -26,11 +26,17 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundry' ); ?></a>
 	<header id="masthead" class="site-header">
-		<div class="container">
-			<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
-				<div class="site-branding navbar-brand">
-					<a href="<?= get_bloginfo('url'); ?>">
-          				<div class="logo"></div>
+		<div class="row content-block">
+			<nav id="site-navigation" class="">
+				<div class="site-branding">
+					<a href="<?php site_url( '/' ); ?>">
+					<?php if(has_custom_logo()): ?>
+						<div class="logo">
+							<?php the_custom_logo( ); ?>
+						</div>
+					<?php else :?>
+						<h1><?php echo get_bloginfo( 'name' ) ?></h1>
+					<?php endif; ?>
        				 </a>
 				</div><!-- .site-branding -->
 				
@@ -48,7 +54,7 @@
 				?>
 
 				 <!-- MOBILE NAV (BURGER) -->
-				 <button class="hamburger hamburger--elastic " id="hamburger" type="button">
+				 <button class="hamburger hamburger--collapse " id="hamburger" type="button">
 					<span class="hamburger-box">
 						<span class="hamburger-inner"></span>
 					</span>

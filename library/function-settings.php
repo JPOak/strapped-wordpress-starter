@@ -138,7 +138,7 @@ if ( ! function_exists( 'foundry_setup' ) ) :
 			'custom-logo',
 			array(
 				'height'      => 250,
-				'width'       => 250,
+				'width'       => 150,
 				'flex-width'  => true,
 				'flex-height' => true,
 			)

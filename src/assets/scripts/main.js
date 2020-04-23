@@ -34,6 +34,6 @@ const routes = new Router({
 	about,
 });
 
-jQuery(document).ready(() => {
+document.addEventListener("DOMContentLoaded", function (event) {
 	routes.loadEvents();
 });
