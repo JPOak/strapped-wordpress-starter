@@ -12,7 +12,7 @@ get_header();
 
 <section class="site-hero">
 	
-	<?php get_template_part( 'components/page/hero' ); ?>
+	<?php get_template_part( 'components/front/hero' ); ?>
 
 </section>
 

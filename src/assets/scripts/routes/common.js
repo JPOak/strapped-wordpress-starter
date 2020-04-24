@@ -8,8 +8,10 @@ export default {
 
 		// kick off the polyfill!
 		smoothscroll.polyfill();
+
 		// Hamburger event listener
 		hamburger();
+
 		// Lazy load image with lozad.js https://github.com/ApoorvSaxena/lozad.js
 		const lazyObserver = lozad(".lozad", {
 			load: function (el) {
@@ -20,11 +22,11 @@ export default {
 				// }
 			},
 		}); // lazy loads elements with default selector as '.lozad'
-		observer.lazyObserver();
+		lazyObserver.observe();
 
 		const coolImage = document.querySelector(".lazy");
 		// ... trigger the load of a image before it appears on the viewport
-		observer.triggerLoad(coolImage);
+		lazyObserver.triggerLoad(coolImage);
 	},
 
 	finalize() {
