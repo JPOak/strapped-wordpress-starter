@@ -2,7 +2,7 @@
 /**
  * The template for displaying frontpage by default
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @author Andrea Musso
  *
  * @package foundry
  */
@@ -10,24 +10,24 @@
 get_header();
 ?>
 
-<div id="primary" class="container content-area row content-block" >
-	<main id="main" class="site-main  col-xs-2 col-sm-4">
-	<?php
-	while ( have_posts() ) :
-		the_post();
+<section class="site-hero">
+	
+	<?php get_template_part( 'components/page/hero' ); ?>
 
-		get_template_part( 'template-parts/content', 'front' );
+</section>
 
-	endwhile; // End of the loop.
-	?>
+<main class="main homepage" role="main">
 
-	</main><!-- #main -->
-	<div class="btn__wrapper">
-		<a href="" class="btn">Read more</a>
-	</div>
+	<?php if ( have_posts() ) : ?>
 
-</div><!-- #primary -->
+		<?php while ( have_posts() ) : the_post(); // @codingStandardsIgnoreLine ?>
 
+			<?php get_template_part( 'template-parts/content', 'front' ) ?>
 
-<?php
-get_footer();
+		<?php endwhile; ?>
+
+	<?php endif; ?>
+
+</main>
+
+<?php get_footer(); ?>

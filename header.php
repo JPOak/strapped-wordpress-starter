@@ -35,7 +35,7 @@
 			<?php get_template_part( 'components/navigation/primary' ); ?>
 			<?php get_template_part( 'components/header/hamburger' ); ?>
 		</div>
-		<?php get_search_form(); ?>
+		<!-- <?php get_search_form(); ?> -->
 	</header><!-- .site-header -->
 
 
