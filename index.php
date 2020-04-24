@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The index file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -15,44 +15,34 @@
 get_header();
 ?>
 
-<div id="primary" class="container content-area">
-	<main id="main" class="site-main">
 
-	<?php
-	if ( have_posts() ) :
+<main role="main" class=" main index-main">
 
-		if ( is_home() && ! is_front_page() ) :
-			?>
-		<header>
-			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-		</header>
-			<?php
-		endif;
+<?php
+if ( have_posts() ) :?>
 
-		/* Start the Loop */
-		while ( have_posts() ) :
-			the_post();
+	<header>
+		<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+	</header>
 
-			/*
-			* Include the Post-Type-specific template for the content.
-			* If you want to override this in a child theme, then include a file
-			* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-			*/
-			get_template_part( 'template-parts/content', get_post_type() );
+<?php
+	/* Start the Loop */
+	while ( have_posts() ) :
 
-		endwhile;
+		the_post();
+		get_template_part( 'template-parts/content', get_post_type() );
 
-		the_posts_navigation();
+	endwhile;
 
-	else :
+else :
 
-		get_template_part( 'template-parts/content', 'none' );
+	get_template_part( 'template-parts/content', 'none' );
 
-	endif;
-	?>
+endif;
+?>
 
-	</main><!-- #main -->
-</div><!-- #primary -->
+</main><!-- #main -->
+
 
 <?php
 get_footer();

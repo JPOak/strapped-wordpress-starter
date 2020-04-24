@@ -16,7 +16,7 @@ get_header();
 
 </section>
 
-<main class="main homepage" role="main">
+<main class="main homepage-main" role="main">
 
 	<?php if ( have_posts() ) : ?>
 
