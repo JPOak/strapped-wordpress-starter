@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main class="main" role="main" >
+<main class="main site-search" role="main" >
 
 	<?php if ( have_posts() ) : ?>
 
@@ -36,8 +36,6 @@ get_header();
 			get_template_part( 'template-parts/content', 'search' );
 
 		endwhile;
-
-			the_posts_navigation();
 
 		else :
 
