@@ -8,7 +8,7 @@
  */
 ?>
 
-<button class="site-header__item hamburger hamburger--collapse " id="hamburger" type="button">
+<button class="site-header__item site-header__hmaburger hamburger hamburger--collapse " id="hamburger" type="button">
     <span class="hamburger-box">
         <span class="hamburger-inner"></span>
     </span>

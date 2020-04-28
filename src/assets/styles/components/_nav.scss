@@ -4,3 +4,56 @@
 		display: block;
 	}
 }
+
+.site-header {
+	background-color: $color__main;
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__item {
+		flex-grow: 1;
+	}
+	&__logo {
+		max-width: 250px;
+	}
+	&__hamburger {
+		display: block;
+		@media #{$breakpoint-sm-up} {
+			display: none;
+		}
+	}
+	&__menu {
+		flex-grow: 2;
+		> ul {
+			display: flex;
+			justify-content: flex-end;
+		}
+		.menu-item {
+			margin-left: 20px;
+			&:first-of-type {
+				margin-left: 0px;
+			}
+			> a {
+				font-weight: 600;
+			}
+		}
+	}
+	&__social {
+		flex-grow: 0;
+		display: flex;
+		margin-left: 20px;
+		> li {
+			margin-right: 8px;
+			&:last-of-type {
+				margin-right: none;
+			}
+		}
+		svg {
+			vertical-align: middle;
+			width: 25px;
+			height: 25px;
+		}
+	}
+}

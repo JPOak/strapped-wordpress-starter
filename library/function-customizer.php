@@ -13,6 +13,7 @@
 
 	// ========== VARIABLES ==========//
 
+	// COLOR
 	// main color 
 	$txtcolors[] = array(
 		'slug'=>'main_color', 
@@ -41,7 +42,7 @@
 		'label' => 'Link Color (on hover)'
 	);
 
-
+	// FONT-SIZE
 	$fontsize[] = array(
 		'slug'=>'text-h1', 
 		'default' => 36,
@@ -78,11 +79,32 @@
 		'label' => 'Font size p'
 	);
 
+	// SITE SETTING
+	// social
+	$social[] = array(
+		'slug'=>'instagram', 
+		'default' => '',
+		'label' => 'Instagram URL'
+	);
+
+	$social[] = array(
+		'slug'=>'facebook', 
+		'default' => '',
+		'label' => 'Facebook URL'
+	);
+	
+	$social[] = array(
+		'slug'=>'linkedin', 
+		'default' => '',
+		'label' => 'Linkedin URL'
+	);
+
 
 function foundry_customize_register( $wp_customize ) {
 
 	global $txtcolors;
 	global $fontsize;
+	global $social;
 	
 	// COLOR 
 	foreach( $txtcolors as $txtcolor ) {
@@ -106,7 +128,6 @@ function foundry_customize_register( $wp_customize ) {
 			)
 		);
 	}
-
 	// color section
 	$wp_customize->add_section( 'themecolor' , array(
 		'description' => __( 'Those are the colors for the theme', 'foundry' ),
@@ -121,6 +142,7 @@ function foundry_customize_register( $wp_customize ) {
 			$size['slug'], array(
 				'default' => $size['default'],
 				'type' => 'theme_mod',
+				'sanitize_callback' => 'absint', //converts value to a non-negative integer
 				'transport' => 'refresh',
 			)
 		); 
@@ -140,12 +162,83 @@ function foundry_customize_register( $wp_customize ) {
 		'priority' => 21,
 	) );
 	
+	// SOCIAL
+	foreach( $social as $link ) {
+		// social  setting
+		$wp_customize->add_setting(
+			$link['slug'], array(
+				'default' => $link['default'],
+				'type' => 'theme_mod',
+				'sanitize_callback' => 'esc_url_raw', //cleans URL from all invalid characters
+				'transport' => 'refresh',
+			)
+		); 
+		// social  control
+		$wp_customize->add_control( $link['slug'],
+			array('label' => $link['label'], 
+			'section' => 'social',
+			'type'=> 'url',
+			'settings' => $link['slug'])
+		);
+	}
+	// social  setting -out loop
+	$wp_customize->add_setting(
+		'display-social', array(
+			'default' => 0,
+			'type' => 'theme_mod',
+			'transport' => 'refresh',
+		)
+	); 
+	// social  control -out loop
+	$wp_customize->add_control( 'display-social',
+		array('label' => 'Display in main navigation', 
+		'section' => 'social',
+		'type'=> 'checkbox',
+		'settings' => 'display-social',
+		)
+	);
+	// social section
+	$wp_customize->add_section( 'social' , array(
+		'description' => __( 'Those are the setting for social channel', 'foundry' ),
+		'title' =>  'Social',
+		'priority' => 21,
+	) );
+
+	// FOOTER 
+
+	// footer setting 
+	$wp_customize->add_setting(
+		'background', array(
+			'default' => '#ffffff',
+			'type' => 'theme_mod',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'refresh',
+		)
+	); 
+	
+	// footer control
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'background', 
+			array('label' => 'Background color', 
+			'section' => 'footer',
+			'settings' => 'background')
+		)
+	);
+	
+	// footer section
+	$wp_customize->add_section( 'footer' , array(
+		'description' => __( 'Change Footer setting. See widget for content modification.', 'foundry' ),
+		'title' =>  'Footer',
+		'priority' => 161,
+	) );	
+	
  }
  add_action( 'customize_register', 'foundry_customize_register' );
 
 
 //  Add custom variables as css variable
-
 function fd_root_variables(){
 	global $txtcolors;
 	global $fontsize;
@@ -160,6 +253,7 @@ function fd_root_variables(){
 	foreach( $fontsize as $size ) {
 		$data .= '--'.$size["slug"].':'.get_theme_mod($size["slug"], $size["default"] ).'px;'.PHP_EOL;
 	}
+	$data .= '--footer-color : '.get_theme_mod('background', '#ffffff').';'.PHP_EOL;
 	$data .= '}';
 	fwrite($handle, $data);
 	fclose($handle);
