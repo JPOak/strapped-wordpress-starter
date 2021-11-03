@@ -1,8 +1,7 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const fileExists = require('file-exists');
 const commonConfig = require('./common.config');
 const path = require('path');
@@ -17,7 +16,8 @@ module.exports = merge(commonConfig, {
 
 	output: {
 			path: path.resolve(__dirname, '../../dist/scripts'),
-			filename: 'main.js'
+			filename: 'main.js',
+			clean: true
 	},
 	devtool: 'source-map',
 	module: {
@@ -38,8 +38,8 @@ module.exports = merge(commonConfig, {
 						{
 								loader: 'postcss-loader', options: {
 										sourceMap: true,
-										config: {
-											path: 'src/build/'
+										postcssOptions: {
+											config: 'src/build/'
 										}
 								}
 						},
@@ -53,7 +53,6 @@ module.exports = merge(commonConfig, {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 				filename: "../styles/[name].css"
 				//chunkFilename: "[id].css"
@@ -65,10 +64,11 @@ module.exports = merge(commonConfig, {
 				//URL of local development server goes below (ex. http://yourdomain.loc)
 				proxy: configDefault.devUrl
 		}),
-		new CopyWebpackPlugin([{
-				from: path.resolve(__dirname, '../assets/images'),
-				to: path.resolve(__dirname, '../../dist/images')
-		}])
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: path.resolve(__dirname, '../assets/images'), to: path.resolve(__dirname, '../../dist/images') },
+			],
+		})
 	]
 
 });//Config end
