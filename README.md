@@ -4,7 +4,7 @@ This is a Wordpress Starter Theme initially based on Underscores, packaged with 
 
 ### Prerequisites
 
-You will need the latest version of Node.js (https://nodejs.org/) to get started.
+Tested with Node 16.8+ and NPM 7.21+
 
 ### Prerequisites
 
