@@ -6,21 +6,21 @@
   *
   *
   */
+// =============== RESPONSIVE ================
 
-/*==================================================================================
-  GRID overwrite default
-==================================================================================*/
-// Grid
-$grid-columns: 12; // Set number of columns in the grid
-
-$xs-max: 40rem; // Set xs breakpoint's max width 40rem = 640px
-$sm-max: 64rem; // Set sm breakpoint's max width 64rem =1,024px
-$md-max: 90rem; // Set md breakpoint's max width 90rem = 1,440px
-$lg-max: 120rem; // Set lg breakpoint's max width 120rem = 1,920px
-
-$gutter: 1rem; // Set gutter size 16px
-
-$content-well-max-width: "none"; // Set the max-width of the content well => see mixins
+$breakpoints:(
+  'phone': 640px,
+  'phone-land': 920px,
+  'tablet': 1140px,
+  'desktop': 1360px,
+  'wideScreen': 1490px
+  ) !default;
+  
+  @import '~include-media/dist/include-media';
+  // EXAMPLE
+  // @include media(">phone", "<=tablet") {
+    //   width: 50%;
+    //   }
 
 /*==================================================================================
   FONT

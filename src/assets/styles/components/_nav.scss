@@ -1,8 +1,6 @@
 .hidden_mobile {
 	display: none;
-	@media #{$breakpoint-sm-up} {
-		display: block;
-	}
+
 }
 
 .site-header {
@@ -20,9 +18,6 @@
 	}
 	&__hamburger {
 		display: block;
-		@media #{$breakpoint-sm-up} {
-			display: none;
-		}
 	}
 	&__menu {
 		flex-grow: 2;
